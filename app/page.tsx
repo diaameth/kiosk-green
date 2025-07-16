@@ -1326,8 +1326,8 @@ export default function OrangeMoneyKiosque() {
   }
 
   const FABMenu = () => (
-    <div className="fixed inset-0 bg-black/20 z-40" onClick={() => setShowFABMenu(false)}>
-      <div className="absolute bottom-24 right-6 space-y-3">
+    <div className="absolute inset-0 bg-black/20 z-40" onClick={() => setShowFABMenu(false)}>
+      <div className="absolute bottom-[10rem] right-6 space-y-3">
         <Button
           onClick={() => {
             setCurrentScreen("supply")
@@ -1391,14 +1391,14 @@ export default function OrangeMoneyKiosque() {
   }
 
   return (
-    <div className="max-w-sm mx-auto bg-white min-h-screen relative overflow-hidden">
+     <div className="relative w-full h-full">
       {renderScreen()}
 
       {/* FAB */}
       {showFAB && (
         <Button
           onClick={() => setShowFABMenu(!showFABMenu)}
-          className="fixed bottom-6 right-6 w-14 h-14 bg-teal-600 hover:bg-teal-700 text-white rounded-full shadow-lg z-50"
+            className="absolute bottom-20 right-4 sm:bottom-18 sm:right-6 w-14 h-14 bg-teal-600 hover:bg-teal-700 text-white rounded-full shadow-lg z-50"
         >
           <Menu className="w-6 h-6" />
         </Button>
@@ -1409,7 +1409,7 @@ export default function OrangeMoneyKiosque() {
 
       {/* Bottom Navigation for Dashboard */}
       {currentScreen === "dashboard" && (
-        <div className="fixed bottom-0 left-0 right-0 max-w-sm mx-auto bg-white border-t border-gray-200 px-6 py-3">
+        <div className="absolute bottom-0 left-0 right-0 px-6 py-3 border-t border-gray-200 bg-white z-30 bg-white border-t border-gray-200 px-6 py-3">
           <div className="flex justify-around">
             <Button variant="ghost" size="sm" className="flex flex-col items-center space-y-1 text-teal-600">
               <TrendingUp className="w-5 h-5" />

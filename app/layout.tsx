@@ -12,16 +12,12 @@ export const metadata: Metadata = {
     generator: 'v0.dev'
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr">
       <body className={inter.className}>
-        <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-          <div className="w-full h-screen sm:w-full sm:max-w-sm sm:h-[926px] sm:max-h-[926px] bg-white sm:rounded-3xl sm:shadow-2xl overflow-hidden">
+        <div className="min-h-screen bg-gray-100 flex items-center justify-center p-0 sm:p-0">
+          <div className="relative w-full h-screen sm:w-full sm:max-w-sm sm:h-[926px] sm:max-h-[926px] bg-white sm:rounded-3xl sm:shadow-2xl overflow-hidden">
             {children}
           </div>
         </div>
@@ -29,3 +25,4 @@ export default function RootLayout({
     </html>
   )
 }
+

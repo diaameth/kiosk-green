@@ -58,7 +58,7 @@ export default function OrangeMoneyKiosque() {
   const [supplyAmount, setSupplyAmount] = useState([50000])
   const [showFAB, setShowFAB] = useState(false)
   const [showFABMenu, setShowFABMenu] = useState(false)
-  const [otpTimer, setOtpTimer] = useState(60)
+  // const [otpTimer, setOtpTimer] = useState(60)
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null)
   const [loginError, setLoginError] = useState("")
 
@@ -78,12 +78,12 @@ export default function OrangeMoneyKiosque() {
     }
   }, [currentScreen])
 
-  useEffect(() => {
-    if (currentScreen === "otp" && otpTimer > 0) {
-      const timer = setTimeout(() => setOtpTimer(otpTimer - 1), 1000)
-      return () => clearTimeout(timer)
-    }
-  }, [currentScreen, otpTimer])
+  // useEffect(() => {
+  //   if (currentScreen === "otp" && otpTimer > 0) {
+  //     const timer = setTimeout(() => setOtpTimer(otpTimer - 1), 1000)
+  //     return () => clearTimeout(timer)
+  //   }
+  // }, [currentScreen, otpTimer])
 
   const handleLogin = () => {
     setLoginError("")
@@ -101,7 +101,7 @@ export default function OrangeMoneyKiosque() {
 
     // Accept any 10-digit phone number and any password
     setCurrentScreen("otp")
-    setOtpTimer(60)
+    // setOtpTimer(60)
     setOtpCode(["", "", "", "", "", ""])
   }
 
@@ -199,7 +199,7 @@ export default function OrangeMoneyKiosque() {
       }, 0)
       return () => clearTimeout(timer)
     }
-  }, [otpTimer, focusedIndex, currentScreen])
+  }, [focusedIndex, currentScreen])
 
   // Auto-focus first empty field when screen loads
   useEffect(() => {
@@ -378,13 +378,11 @@ export default function OrangeMoneyKiosque() {
             </div>
 
             <div className="text-center">
-              {otpTimer > 0 ? (
-                <p className="text-gray-500">Renvoyer le code dans {otpTimer}s</p>
-              ) : (
-                <Button variant="ghost" className="text-teal-600" onClick={() => setOtpTimer(60)}>
+ 
+                <p className="text-gray-500">Renvoyer le code dans 60s</p>
+                <Button variant="ghost" className="text-teal-600">
                   Renvoyer le code
                 </Button>
-              )}
             </div>
 
             <Button
